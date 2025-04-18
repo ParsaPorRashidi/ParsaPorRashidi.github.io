@@ -1,137 +1,309 @@
+:root {
+    --primary-color: #00bcd4;
+    --secondary-color: #0097a7;
+    --dark-bg: #0f111a;
+    --darker-bg: #070b12;
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --text-color: #ffffff;
+    --text-secondary: #cccccc;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden; /* جلوگیری از اسکرول افقی */
+    overflow-y: hidden;
+}
+
 body {
-    background: linear-gradient(135deg, #050118,#031626);
-    color: white;
-    font-family: 'Vazir', sans-serif;
+    background: radial-gradient(ellipse at bottom, var(--dark-bg) 0%, var(--darker-bg) 100%);
+    color: var(--text-color);
+    font-family: 'Vazir', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    line-height: 1.6;
 }
 
-.profile-box , .about-box{
-    z-index: 2;
-}
-
-.profile-box {
-    width: 400px;
-    min-height: 85vh;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50px;
-    padding: 30px;
-    text-align: center;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-}
-
-.profile-box img {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    border: 3px solid #6c757d;
-}
-
-.profile-text {
-    margin-top: 20px;
-}
-
-.social-icons {
-    margin-top: 15px;
-}
-
-.social-icons a {
-    color: white;
-    font-size: 24px;
-    margin: 0 10px;
-    transition: color 0.3s;
-}
-
-.social-icons a:hover {
-    color: #1e88e5;
-}
-
-.about-box {
-    flex: 1;
-    min-height: 85vh;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 40px;
-    padding: 30px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    pointer-events: none;
 }
 
 .container-custom {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    gap: 20px;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+}
+
+@media (min-width: 992px) {
+    .container-custom {
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 4rem 2rem;
+    }
+}
+
+/* Profile Box */
+.profile-box {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    padding: 2.5rem;
+    width: 100%;
+    height: 620px;
+    max-width: 380px;
+    text-align: center;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.profile-box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 188, 212, 0.3);
+}
+
+.profile-box img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--primary-color);
+    margin-bottom: 1.5rem;
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 24px rgba(0, 188, 212, 0.3);
+}
+
+.profile-box:hover img {
+    transform: scale(1.05);
+    border-color: var(--secondary-color);
+}
+
+.profile-text h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.profile-text p {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.profile-text p strong {
+    color: var(--primary-color);
+}
+
+.divider {
+    width: 80%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 188, 212, 0.5), transparent);
+    margin: 1.5rem auto;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
     flex-wrap: wrap;
 }
 
-.btn-custom {
-    background-color: #1e88e5;
-    color: white;
-    border-radius: 25px;
-    padding: 10px 20px;
+.social-icons a {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     text-decoration: none;
-    transition: all 0.3s;
 }
 
-.btn-custom:hover {
-    background-color: #1565c0;
+.social-icons a:hover {
+    color: var(--primary-color);
+    transform: translateY(-5px);
+    background: rgba(0, 188, 212, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 188, 212, 0.3);
 }
 
-.skills-slider {
+/* About Box with Tabs */
+.about-box {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    padding: 2rem;
+    flex: 1;
+    height: 620px;
+    max-width: 700px;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.about-box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 188, 212, 0.3);
+}
+
+.tabs {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.tab-btn.active {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
     width: 100%;
-    max-width: 760px; /* عرض اسلایدر را کوچک‌تر کنید */
-    border: 2px solid rgb(221, 221, 221);
-    border-radius: 10px;
-    padding: 10px;
-    margin: 20px auto; /* فاصله با متن بالایی */
+    height: 3px;
+    background: var(--primary-color);
+}
+
+.tab-btn:hover:not(.active) {
+    color: var(--text-color);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.tab-content {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.tab-content.active {
+    visibility: visible;
+    opacity: 1;
+    position: relative;
+    pointer-events: auto;
+}
+
+
+.about-content h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.about-content p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    text-align: justify;
+}
+
+/* Sliders */
+.slider-container {
+    margin: 2rem 0;
+    overflow: hidden;
+}
+
+.slider-container h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.6rem;
+    color: var(--primary-color);
     text-align: center;
 }
 
 .swiper {
     width: 100%;
-    height: auto; /* ارتفاع را به صورت اتوماتیک تنظیم کنید تا به محتوا بستگی داشته باشد */
-    overflow: hidden; /* جلوگیری از رفتگی */
+    height: 100%;
+    padding: 20px 0;
 }
 
 .swiper-slide {
     text-align: center;
-    font-size: 18px;
-    background: rgb(255, 255, 255, 0.1);
-    opacity: 0.5;
-    border-radius: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    bottom: 1;
+    justify-content: center;
+    transition: all 0.3s ease;
+    padding: 1rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    height: 120px;
 }
 
-.swiper-slide-active {
-    opacity: 1;
+.swiper-slide:hover {
+    transform: translateY(-8px);
+    background: rgba(0, 188, 212, 0.1);
+    box-shadow: 0 8px 24px rgba(0, 188, 212, 0.2);
+}
+
+.swiper-slide img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.swiper-slide:hover img {
     transform: scale(1.1);
 }
 
-.swiper-slide i {
-    font-size: 30px; /* اندازه آیکون‌ها را کوچک‌تر کنید */
-    color: #1e88e5;
-}
-
 .swiper-slide p {
-    margin-top: 5px; /* فاصله متن از آیکون را کاهش دهید */
-    font-size: 14px; /* اندازه متن را کوچک‌تر کنید */
-    color: white;
+    font-size: 1rem;
+    color: var(--text-color);
+    margin: 0;
 }
 
-
-.swiper-slide img {
-    width: 45px; /* عرض عکس */
-    height: 45px; /* ارتفاع عکس */
-    object-fit: cover; /* حفظ نسبت تصویر */
-    border-radius: 50%; /* گرد کردن عکس */
-    opacity: 1;
+.swiper-slide a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
 }
 
+/* Language Switcher */
 .language-switcher {
     position: fixed;
     top: 20px;
@@ -140,118 +312,69 @@ body {
 }
 
 .language-icon {
-    width: 40px;
-    height: 40px;
-    background-color: #1e88e5;
+    width: 50px;
+    height: 50px;
+    background: rgba(0, 188, 212, 0.2);
+    backdrop-filter: blur(10px);
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .language-icon:hover {
-    background-color: #1565c0;
+    background: rgba(0, 188, 212, 0.3);
+    transform: scale(1.1) rotate(15deg);
+    box-shadow: 0 5px 15px rgba(0, 188, 212, 0.3);
 }
 
-.language-icon img {
-    width: 24px;
-    height: 24px;
-}
-
-  /* ---- particles.js container ---- */
-  
-  #particles-js {
-    width: 100%;
-    height: 100%;
-    background-color: #050118;
-    background-image: url('');
-    background-size: cover;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    position: fixed; 
-    top: 0;
-    left: 0;
-}
-
-/* مدیا کوئری‌ها برای ریسپانسیو کردن صفحه */
-@media (min-width: 768px) and (max-width: 1024px) {
-    .profile-box {
-        width: 80%; /* افزایش عرض پروفایل */
-        padding: 20px;
-    }
-
-    .profile-text{
-        margin-top: 20px;
-        font-size: large;
-    }
-
-    .profile-box img {
-        width: 450px;
-        height: 450px;
-    }
-
-    .about-box {
-        width: 80%; /* افزایش عرض باکس درباره من */
-        padding: 20px;
-    }
-
-    .swiper {
-        height: 120px;
-    }
-
-    .swiper-slide i {
-        font-size: 50px; /* افزایش اندازه آیکون‌ها */
-    }
-
-    .swiper-slide p {
-        font-size: 18px;
-    }
-
-    .skills-slider {
-        max-width: 85%; /* افزایش عرض اسلایدر مهارت‌ها */
-    }
-
-    #particles-js {
-        display: block; /* نمایش افکت ذرات در تبلت */
-    }
-
+/* Responsive */
+@media (max-width: 768px) {
     .container-custom {
-        flex-direction: column; /* در تبلت، آیتم‌ها را عمودی نمایش بده */
+        padding: 1.5rem;
     }
-}
 
-
-@media (max-width: 480px) {
-    .profile-box {
+    .profile-box, .about-box {
+        padding: 1.5rem;
+        border-radius: 20px;
         width: 100%;
-        padding: 10px;
+        max-width: 350px;
+    }
+
+    .profile-box {
+        height: 550px;
     }
 
     .profile-box img {
-        width: 250px;
-        height: 250px;
-        margin-top: 30px;
+        width: 150px;
+        height: 150px;
     }
 
-    .about-box {
-        width: 100%;
-        padding: 10px;
+    .tabs {
+        justify-content: center;
+        flex-wrap: wrap;
     }
-
     .swiper {
-        height: 80px;
-    }
-
-    .swiper-slide i {
-        font-size: 30px;
-    }
-
-    .swiper-slide p {
-        font-size: 10px;
-    }
-    #particles-js{
-        display: none;
-    }
+        max-width: 100%;
+        overflow: hidden;
+      }      
 }
+
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.8s ease forwards;
+}
+
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+.delay-4 { animation-delay: 0.8s; }
