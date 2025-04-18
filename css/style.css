@@ -341,6 +341,7 @@ body {
         border-radius: 20px;
         width: 100%;
         max-width: 350px;
+        height: auto; /* بهش اجازه بده کش بیاد */
     }
 
     .profile-box {
