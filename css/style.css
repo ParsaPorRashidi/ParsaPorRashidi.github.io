@@ -1,257 +1,519 @@
-body {
-    background: linear-gradient(135deg, #050118,#031626);
-    color: white;
-    font-family: 'Vazir', sans-serif;
+:root {
+    --primary: #8a2be2;
+    --primary-dark: #5a189a;
+    --secondary: #c77dff;
+    --dark: #0f0f0f;
+    --darker: #0a0a0a;
+    --light: #f8f8f8;
+    --text: #e0e0e0;
+    --text-secondary: #b0b0b0;
 }
 
-.profile-box , .about-box{
-    z-index: 2;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Vazirmatn', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.profile-box {
-    width: 400px;
-    min-height: 85vh;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50px;
-    padding: 30px;
-    text-align: center;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-}
-
-.profile-box img {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    border: 3px solid #6c757d;
-}
-
-.profile-text {
-    margin-top: 20px;
-}
-
-.social-icons {
-    margin-top: 15px;
-}
-
-.social-icons a {
-    color: white;
-    font-size: 24px;
-    margin: 0 10px;
-    transition: color 0.3s;
-}
-
-.social-icons a:hover {
-    color: #1e88e5;
-}
-
-.about-box {
-    flex: 1;
-    min-height: 85vh;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 40px;
-    padding: 30px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-}
-
-.container-custom {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.btn-custom {
-    background-color: #1e88e5;
-    color: white;
-    border-radius: 25px;
-    padding: 10px 20px;
+a{
     text-decoration: none;
-    transition: all 0.3s;
 }
 
-.btn-custom:hover {
-    background-color: #1565c0;
+@font-face {
+    font-family: 'Vazirmatn';
+    src: url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/fonts/webfonts/Vazirmatn-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
 }
 
-.skills-slider {
-    width: 100%;
-    max-width: 760px; /* عرض اسلایدر را کوچک‌تر کنید */
-    border: 2px solid rgb(221, 221, 221);
-    border-radius: 10px;
-    padding: 10px;
-    margin: 20px auto; /* فاصله با متن بالایی */
-    text-align: center;
+body {
+    background-color: var(--dark);
+    color: var(--text);
+    overflow-x: hidden;
+    line-height: 1.6;
 }
 
-.swiper {
-    width: 100%;
-    height: auto; /* ارتفاع را به صورت اتوماتیک تنظیم کنید تا به محتوا بستگی داشته باشد */
-    overflow: hidden; /* جلوگیری از رفتگی */
-}
-
-.swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    background: rgb(255, 255, 255, 0.1);
-    opacity: 0.5;
-    border-radius: 10px;
+/* بنر وکتوری */
+.banner {
+    height: 100vh;
+    min-height: 600px;
+    background: linear-gradient(135deg, var(--darker) 0%, var(--primary-dark) 100%);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    bottom: 1;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    padding: 0 20px;
 }
 
-.swiper-slide-active {
-    opacity: 1;
-    transform: scale(1.1);
+.banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 2000 2000' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='a' x1='50%25' y1='0%25' x2='50%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%238a2be2' stop-opacity='0.1'/%3E%3Cstop offset='100%25' stop-color='%235a189a' stop-opacity='0.05'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23a)' d='M1219.5 1330Q1140 1460 960 1460t-259.5-130Q560 1200 560 1000t140.5-330Q840 540 960 540t219.5 130Q1360 800 1360 1000t-140.5 330Z'/%3E%3Cpath fill='none' stroke='%23c77dff' stroke-width='1' opacity='0.2' d='M1219.5 1330Q1140 1460 960 1460t-259.5-130Q560 1200 560 1000t140.5-330Q840 540 960 540t219.5 130Q1360 800 1360 1000t-140.5 330Z' transform='rotate(20 1000 1000)'/%3E%3Cpath fill='none' stroke='%23c77dff' stroke-width='1' opacity='0.2' d='M1219.5 1330Q1140 1460 960 1460t-259.5-130Q560 1200 560 1000t140.5-330Q840 540 960 540t219.5 130Q1360 800 1360 1000t-140.5 330Z' transform='rotate(40 1000 1000)'/%3E%3C/svg%3E");
+    background-size: cover;
+    opacity: 0.8;
+    z-index: 0;
 }
 
-.swiper-slide i {
-    font-size: 30px; /* اندازه آیکون‌ها را کوچک‌تر کنید */
-    color: #1e88e5;
+.banner-content {
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 20px;
+    position: relative;
 }
 
-.swiper-slide p {
-    margin-top: 5px; /* فاصله متن از آیکون را کاهش دهید */
-    font-size: 14px; /* اندازه متن را کوچک‌تر کنید */
+.banner h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    margin-bottom: 20px;
     color: white;
+    text-shadow: 0 0 15px rgba(138, 43, 226, 0.5);
+    line-height: 1.2;
+    font-weight: 700;
 }
 
+.banner p {
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    margin-bottom: 30px;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
-.swiper-slide img {
-    width: 45px; /* عرض عکس */
-    height: 45px; /* ارتفاع عکس */
-    object-fit: cover; /* حفظ نسبت تصویر */
-    border-radius: 50%; /* گرد کردن عکس */
+.banner .btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: all 0.4s ease;
+    border: 2px solid var(--primary);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.banner .btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.banner .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(138, 43, 226, 0.4);
+    border-color: var(--secondary);
+}
+
+.banner .btn:hover::before {
     opacity: 1;
 }
 
-.language-switcher {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 1000;
-}
-
-.language-icon {
-    width: 40px;
-    height: 40px;
-    background-color: #1e88e5;
-    border-radius: 50%;
+.scroll-down {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--text);
+    font-size: 1.5rem;
+    animation: bounce 2s infinite;
+    cursor: pointer;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.1);
+    width: 50px;
+    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    border-radius: 50%;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(199, 125, 255, 0.3);
 }
 
-.language-icon:hover {
-    background-color: #1565c0;
+.scroll-down:hover {
+    color: var(--secondary);
+    border-color: var(--secondary);
 }
 
-.language-icon img {
-    width: 24px;
-    height: 24px;
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0) translateX(-50%);
+    }
+    40% {
+        transform: translateY(-15px) translateX(-50%);
+    }
+    60% {
+        transform: translateY(-7px) translateX(-50%);
+    }
 }
 
-  /* ---- particles.js container ---- */
-  
-  #particles-js {
-    width: 100%;
-    height: 100%;
-    background-color: #050118;
-    background-image: url('');
-    background-size: cover;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    position: fixed; 
+/* بخش مهارت‌ها */
+.skills-section {
+    padding: 80px 20px;
+    background-color: var(--darker);
+    direction: ltr;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.skills-section::before {
+    content: '';
+    position: absolute;
     top: 0;
     left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z' fill='%238a2be2' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+    opacity: 0.5;
 }
 
-/* مدیا کوئری‌ها برای ریسپانسیو کردن صفحه */
-@media (min-width: 768px) and (max-width: 1024px) {
-    .profile-box {
-        width: 80%; /* افزایش عرض پروفایل */
-        padding: 20px;
-    }
+.section-title {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 50px;
+    color: var(--secondary);
+    position: relative;
+    display: inline-block;
+    z-index: 1;
+}
 
-    .profile-text{
-        margin-top: 20px;
-        font-size: large;
-    }
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+}
 
-    .profile-box img {
-        width: 450px;
-        height: 450px;
-    }
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
 
-    .about-box {
-        width: 80%; /* افزایش عرض باکس درباره من */
-        padding: 20px;
-    }
+.skill-card {
+    width: clamp(100px, 20vw, 140px);
+    height: clamp(100px, 20vw, 140px);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.4s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    border: 1px solid rgba(199, 125, 255, 0.1);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
 
-    .swiper {
-        height: 120px;
-    }
+.skill-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
 
-    .swiper-slide i {
-        font-size: 50px; /* افزایش اندازه آیکون‌ها */
-    }
+.skill-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    background: rgba(199, 125, 255, 0.1);
+    box-shadow: 0 15px 30px rgba(138, 43, 226, 0.3);
+    border-color: var(--secondary);
+}
 
-    .swiper-slide p {
-        font-size: 18px;
-    }
+.skill-icon {
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    margin-bottom: 10px;
+    color: var(--secondary);
+    transition: all 0.3s ease;
+}
 
-    .skills-slider {
-        max-width: 85%; /* افزایش عرض اسلایدر مهارت‌ها */
-    }
+.skill-card:hover .skill-icon {
+    transform: scale(1.2);
+    color: white;
+}
 
-    #particles-js {
-        display: block; /* نمایش افکت ذرات در تبلت */
-    }
+.skill-name {
+    font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+    font-weight: bold;
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+}
 
-    .container-custom {
-        flex-direction: column; /* در تبلت، آیتم‌ها را عمودی نمایش بده */
+.skill-card:hover .skill-name {
+    color: white;
+}
+
+/* بخش پروژه‌ها */
+.projects-section {
+    padding: 80px 20px;
+    background: linear-gradient(180deg, var(--darker) 0%, var(--dark) 100%);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.projects-section::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(138, 43, 226, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+    z-index: 0;
+}
+
+.projects-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(350px, 100%), 1fr));
+    gap: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+.project-card {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    border: 1px solid rgba(199, 125, 255, 0.1);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(138, 43, 226, 0.3);
+    border-color: var(--secondary);
+    background: rgba(199, 125, 255, 0.05);
+}
+
+.project-image {
+    height: 200px;
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.05));
+}
+
+.project-image i {
+    z-index: 1;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.project-content {
+    padding: 25px;
+}
+
+.project-title {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--secondary);
+    font-weight: 600;
+}
+
+.project-description {
+    margin-bottom: 20px;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.project-tag {
+    background: rgba(199, 125, 255, 0.15);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: var(--secondary);
+    transition: all 0.3s ease;
+}
+
+.project-card:hover .project-tag {
+    background: rgba(199, 125, 255, 0.25);
+    color: white;
+}
+
+/* فوتر */
+footer {
+    background-color: #080808;
+    padding: 40px 20px;
+    text-align: center;
+    position: relative;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--secondary), transparent);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 25px;
+}
+
+.social-link {
+    color: var(--text);
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(199, 125, 255, 0.1);
+}
+
+.social-link:hover {
+    color: var(--secondary);
+    transform: translateY(-5px) scale(1.1);
+    background: rgba(199, 125, 255, 0.1);
+    border-color: var(--secondary);
+    box-shadow: 0 5px 15px rgba(138, 43, 226, 0.3);
+}
+
+.copyright {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.9rem;
+    margin-top: 20px;
+}
+
+/* انیمیشن‌ها */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
     }
 }
 
+/* اسکرول بار */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--darker);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary);
+}
+
+/* ریسپانسیو */
+@media (max-width: 768px) {
+    .banner {
+        min-height: 500px;
+    }
+    
+    .banner h1 {
+        font-size: 2.5rem;
+    }
+    
+    .banner p {
+        font-size: 1rem;
+    }
+    
+    .skill-card {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .projects-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .social-links {
+        gap: 15px;
+    }
+    
+    .social-link {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+    }
+}
 
 @media (max-width: 480px) {
-    .profile-box {
-        width: 100%;
-        padding: 10px;
+    .banner h1 {
+        font-size: 2rem;
     }
-
-    .profile-box img {
-        width: 250px;
-        height: 250px;
-        margin-top: 30px;
+    
+    .section-title {
+        font-size: 1.5rem;
     }
-
-    .about-box {
-        width: 100%;
-        padding: 10px;
-    }
-
-    .swiper {
+    
+    .skill-card {
+        width: 80px;
         height: 80px;
     }
-
-    .swiper-slide i {
-        font-size: 30px;
+    
+    .skill-icon {
+        font-size: 1.8rem;
     }
-
-    .swiper-slide p {
-        font-size: 10px;
-    }
-    #particles-js{
-        display: none;
+    
+    .project-image {
+        height: 150px;
     }
 }
+
